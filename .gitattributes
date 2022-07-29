@@ -1,1 +1,2 @@
 prosperLoanData.csv filter=lfs diff=lfs merge=lfs -text
+final2_prosper_dataset.csv filter=lfs diff=lfs merge=lfs -text
