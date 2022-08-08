@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='c_style.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Team A Model</title>
+</head>
+<body>
+    <div class="container">
+        <header>Logistic Regression Model</header>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>LP_CustomerPrincipalPayments</label>
+                            <input type="text" name="LP_CustomerPrincipalPayments" placeholder="Enter Cumulative Principal Payment" required />
+                        </div>
+                        <div class="input-field">
+                            <label>LoanCurrentDaysDelinquent</label>
+                            <input type="text" name="LoanCurrentDaysDelinquent" placeholder="Enter Loan Current Days Delinquent" required />
+                        </div>
+                        <div class="input-field">
+                            <label>LoanMonthsSinceOrigination</label>
+                            <input type="text" name="LoanMonthsSinceOrigination" placeholder="Enter Loan Months Since Origination" required />
+                        </div>
+                        <div class="input-field">
+                            <label>LP_ServiceFees</label>
+                            <input type="text" name="LP_ServiceFees" placeholder="Enter Service Fees" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>MonthlyLoanPayment</label>
+                            <input type="text" name="MonthlyLoanPayment" placeholder="Enter Monthly Loan Payment" required />
+                        </div>
+                        <div class="input-field">
+                            <label>LoanOriginalAmount</label>
+                            <input type="text" name="LoanOriginalAmount" placeholder="Enter Loan Original Amount" required/>
+                        </div>
+                        <div class="input-field">
+                            <label>BorrowerAPR</label>
+                            <input type="text" name="BorrowerAPR" placeholder="Enter Annual Percentage Rate" required />
+                        </div>
+                        <div class="input-field">
+                            <label>EstimatedEffectiveYield</label>
+                            <input type="text" name="EstimatedEffectiveYield" placeholder="Enter Estimated Effective Yield" required />
+                        </div>
+                        <div class="input-field">
+                            <label>Is It After July 2009</label>
+                            <select required="required" name="after_July2009">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Is Credit Grade Not Applicable</label>
+                            <select required="required" name="CreditGrade_Not_Applicable">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Term</label>
+                            <input type="text" name="Term" placeholder="Enter The Term" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Investors</label>
+                            <input type="text" name="Investors" placeholder="Enter Number of Investors" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Is Professional Occupation</label>
+                            <select required="required" name="Occupation_Professional">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Is Retail Occupation</label>
+                            <select required="required" name="Occupation_Retail Management">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Is BorrowerState NC</label>
+                            <select required="required" name="BorrowerState_NC">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>AvailableBankcardCredit</label>
+                            <input type="text" name="AvailableBankcardCredit" placeholder="Enter Available Bank Card Credit" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Occupation_Sales - Retail</label>
+                            <select required="required" name="Occupation_Sales - Retail">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>StatedMonthlyIncome</label>
+                            <input type="text" name="StatedMonthlyIncome" placeholder="Enter Stated Monthly Income" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Is BorrowerState OK</label>
+                            <select required="required" name="BorrowerState_OK">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Recommendations</label>
+                            <input type="text" name="Recommendations" placeholder="Recommendations" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Interest Rate</label>
+                            <input type="text" name="InterestRate" placeholder="Enter The Interest Rate" required="required" />
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict Status</button>
+            </div>
+        </form>
+
+        {{ prediction_text }}
+    </div>
+</body>
+</html>
